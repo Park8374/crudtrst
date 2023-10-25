@@ -25,7 +25,7 @@
    }
    rs.close();
    stmt.close();
-   conn.close();
+   conn.close(); 
    
    // 모델(내가 사용할 자료 구조) + 자원반남 --> Model Layer 구현 끝
    
@@ -39,7 +39,7 @@
 </head>
 <body>
    <h1>학생입력</h1>
-   <from action="<%=request.getContextPath() %>/addStudentAction.jsp">
+   <form action="<%=request.getContextPath()%>/addStudentAction.jsp">
       <table border="1">
          <tr>
             <th>team</th>
@@ -57,7 +57,30 @@
                </select>
             </td>
          </tr>
+         <tr>
+         	<th>이름</th>
+         	<td>
+         		<input type="text" name="studentName">
+         	</td>
+         </tr>
+         <tr>
+         	<th>성별</th>
+         	<td>
+         		<input type="text" name="studentGender">
+         	</td>
+         </tr>
+          <tr>
+         	<th>생년월일</th>
+         	<td>
+         		<input type="date" name="studentBirth">
+         	</td>
+         </tr>
+         <tr>
+			<td colspan="2">
+				<button type="submit">추가</button>
+			</td>
+		</tr>
       </table>
-   </from>
+  </form>    
 </body>
 </html>

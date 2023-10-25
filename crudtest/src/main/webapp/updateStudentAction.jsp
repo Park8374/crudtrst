@@ -18,11 +18,12 @@
 		String sql = "UPDATE student SET student_name = ?, team_no = ?,student_gender = ? ,updatedate = NOW() WHERE student_no = ? ";
 				
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(2,studentName);
-		stmt.setInt(3,teamNo);
-		stmt.setString(4,studentGender);
+		stmt.setString(1,studentName);
+		stmt.setInt(2,teamNo);
+		stmt.setString(3,studentGender);
+		stmt.setInt(4,studentNo);
 		
-		
+		 
 	
 		
 		System.out.println(stmt+" <--stmt");

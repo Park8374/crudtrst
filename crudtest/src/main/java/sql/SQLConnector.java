@@ -27,7 +27,7 @@ public class SQLConnector {
 			stmt = getSTMT(sql, args);
 			result = stmt.executeQuery();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		} finally {
 			close(stmt);
 		}
@@ -41,16 +41,20 @@ public class SQLConnector {
 			stmt = getSTMT(sql, args);
 			result = stmt.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		} finally {
 			close(stmt);
 		}
 		return result;
 	}
 	
-	private void close(PreparedStatement stmt) throws SQLException {
-		stmt.close();
-		conn.close();
+	private void close(PreparedStatement stmt) {
+		try {
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private PreparedStatement getSTMT(String sql, Object... args) throws SQLException {
