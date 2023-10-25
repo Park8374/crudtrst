@@ -20,17 +20,31 @@ public class SQLConnector {
 		}
 	}
 	
-	public ResultSet execQuery(String sql, Object... args) throws SQLException {
-		var stmt = getSTMT(sql, args);
-		ResultSet result = stmt.executeQuery();
-		close(stmt);
+	public ResultSet execQuery(String sql, Object... args) {
+		PreparedStatement stmt = null;
+		ResultSet result = null;
+		try {
+			stmt = getSTMT(sql, args);
+			result = stmt.executeQuery();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			close(stmt);
+		}
 		return result;
 	}
 	
-	public int execUpdate(String sql, Object... args) throws SQLException {
-		var stmt = getSTMT(sql, args);
-		int result = stmt.executeUpdate();
-		close(stmt);
+	public int execUpdate(String sql, Object... args) {
+		PreparedStatement stmt = null;
+		int result = 0;
+		try {
+			stmt = getSTMT(sql, args);
+			result = stmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			close(stmt);
+		}
 		return result;
 	}
 	

@@ -1,5 +1,7 @@
 package util;
 
+import javax.servlet.http.HttpServletRequest;
+
 import sql.SQLConnector;
 
 public class BoardCRUD {
