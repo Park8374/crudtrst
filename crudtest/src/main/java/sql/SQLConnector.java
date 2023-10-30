@@ -12,7 +12,7 @@ public class SQLConnector {
 	static final String PW = "java1234";
 	
 	Connection conn;
-	public SQLConnector() {
+	public SQLConnector() { 
 		try {
 			this.conn = DriverManager.getConnection(URL, USER, PW);			
 		} catch (Exception e) {
