@@ -14,7 +14,7 @@ public class BoardCRUD {
 			board_content, 
 			board_writer,
 			board_pw,
-			createdate,
+			createdate, 
 			updatedate
 		) VALUES(?,?,?,?,NOW(),NOW())
 		""";
