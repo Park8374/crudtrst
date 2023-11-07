@@ -18,6 +18,7 @@ public class BoardCRUD {
 			updatedate
 		) VALUES(?,?,?,?,NOW(),NOW())
 		""";
+		
 		String boardTitle = request.getParameter("boardTitle");
 		String boardContent = request.getParameter("boardContent");
 		String boardWriter = request.getParameter("boardWriter");
@@ -25,4 +26,5 @@ public class BoardCRUD {
 		
 		return conn.execUpdate(sql, boardTitle, boardContent, boardWriter, boardPw);
 	}
-}
+
+} 
